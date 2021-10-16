@@ -3,4 +3,4 @@ This is a project for EE-629. A smart contract that will execute utilizing chain
 Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 <h1> Lesson 5 </h1>
-![Image of Lesson5A] (https://github.com/WilliamBaltus/IOT_Smart_Contract/blob/main/images/lesson5A.png)
+![Image of Lesson5A] (/images/lesson5A.png)
