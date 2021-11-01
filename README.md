@@ -27,6 +27,8 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 <h3> Lesson 6B  </h3>  
 
 ![Image of Lesson6B](/images/lesson6B.png)
+  
+<h1> Lesson 7 </h1> 
 
 <h3> Lesson 7B  </h3>  
 
