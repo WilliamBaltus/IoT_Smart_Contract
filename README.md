@@ -30,7 +30,7 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 <h3> Lesson 7B  </h3>  
 
-![Image of Lesson7B](/images/lesson7B.png)
+![Image of Lesson7B](/images/lesson7B.PNG)
 
 
 
