@@ -38,9 +38,9 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 <h3> Lesson 8A  </h3>  
 
-![Image of Lesson8A](/images/lesson8A.PNG)
+![Image of Lesson8A](/images/lesson8A.png)
   
-![Image of Lesson8A_titanic](/images/lesson8A_titanic.PNG)
+![Image of Lesson8A_titanic](/images/lesson8A_titanic.png)
 
 <h3> Lesson 8B </h3>
 
