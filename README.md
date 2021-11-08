@@ -34,5 +34,15 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 ![Image of Lesson7B](/images/lesson7B.PNG)
 
+<h1> Lesson 8 </h1> 
 
+<h3> Lesson 8A  </h3>  
+
+![Image of Lesson8A](/images/lesson8A.PNG)
+  
+![Image of Lesson8A_titanic](/images/lesson8A_titanic.PNG)
+
+<h3> Lesson 8B </h3>
+
+I was unable to set this up properly, I was have issues sending over the .csv file unfortunately. 
 
