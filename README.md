@@ -46,3 +46,12 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 I was unable to set this up properly, I was have issues sending over the .csv file unfortunately. 
 
+<h1> Lesson 9 </h1> 
+
+<h3> Lesson 9A </h3>  
+
+![Image of Lesson9A](/images/lesson9A.png)
+
+<h3> Lesson 9B </h3>  
+
+![Image of Lesson9B](/images/lesson9B.png)
