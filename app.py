@@ -16,14 +16,14 @@ from time import sleep
 
 #------------------GPIO AND DEVICE INITIALIZATION--------------------
 #connect to Pi IP ADDRESS
-factory = PiGPIOFactory(host = '155.246.137.109')
-ledPin = 16
-led = LED(ledPin, pin_factory= factory, initial_value=False)
+# factory = PiGPIOFactory(host = '155.246.137.109')
+# ledPin = 16
+# led = LED(ledPin, pin_factory= factory, initial_value=False)
 #---------------------------------------------------------------------
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    led.blink()
+    # led.blink()
     temp = random.randint(1,100)
     return jsonify({'Device': 'Raspberry Pi',
                     'Temperature': temp })
@@ -31,4 +31,4 @@ def hello_world():
 if __name__ == '__main__':
     app.run()
     sleep(1)
-    led.close()
+    # led.close()
