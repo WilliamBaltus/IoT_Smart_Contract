@@ -16,9 +16,9 @@ from time import sleep
 
 #------------------GPIO AND DEVICE INITIALIZATION--------------------
 #connect to Pi IP ADDRESS
-# factory = PiGPIOFactory(host = '155.246.137.109')
-# ledPin = 16
-# led = LED(ledPin, pin_factory= factory, initial_value=False)
+factory = PiGPIOFactory(host = '155.246.137.109')
+ledPin = 16
+led = LED(ledPin, pin_factory= factory, initial_value=False)
 #---------------------------------------------------------------------
 
 @app.route('/', methods=['GET'])
