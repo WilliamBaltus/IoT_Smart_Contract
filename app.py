@@ -8,55 +8,42 @@
 
 
 from flask import Flask, jsonify
-from time import sleep
 import firebase_admin
 from firebase_admin import credentials, firestore
-import os
+from os import environ
+from dotenv import load_dotenv
 import json
 
+load_dotenv()
 
 app = Flask(__name__)
 
-deployed = os.environ.get('IS_HEROKU')
+deployed = environ.get('IS_HEROKU')
 print(deployed)
 if not firebase_admin._apps:
     if( int(deployed) < 1):
         print("RUNNING LOCAL, NOT HEROKU")
         cred = credentials.Certificate(r"iot_smart_contract.json")
+        firebase_admin.initialize_app(cred)
     else:
         #create dictioanry containing environmental variables from heroku config vars
 
-        private_key = str(os.environ['private_key'])
-        #string is used for private key because json dumps would convert one backslash to two backslashes, making an invalid key.
-        #thus this is used to remove extra '\' that is added by json.dumps function... soemhow this worked...
-        stringDict = """{'private_key': """ + "'"+ private_key + "'" + "}"""
-        stringDict = eval(stringDict)
-        credentialsDict = { "type": os.environ['type'],
-                            "project_id":os.environ['project_id'],
-                            "private_key_id":os.environ['private_key_id'],
-                            "private_key":os.environ['private_key'],
-                            "client_email":os.environ['client_email'],
-                            "client_id": os.environ['client_id'],
-                            "auth_uri":os.environ['auth_uri'],
-                            "token_uri":os.environ['token_uri'],
-                            "auth_provider_x509_cert_url":os.environ['auth_provider_x509_cert_url'],
-                            "client_x509_cert_url":os.environ['client_x509_cert_url']}
-       
-        #combine heroku environment variable dictionary with private key dictionary
-        finalDict = {**credentialsDict,**stringDict}
-        #convert to json string and write to file
-        jsonDict = json.dumps(finalDict, indent = 2)
-        #print(jsonDict)
-        #create and write to json file
-        with open("sample.json", "w") as outfile:
-            outfile.write(jsonDict)
+        credentialsDict = { "type": environ['FIREBASE_TYPE'],
+                            "project_id":environ['FIREBASE_PROJECT_ID'],
+                            "private_key_id":environ['FIREBASE_PRIVATE_KEY_ID'],
+                            "private_key":environ['FIREBASE_PRIVATE_KEY'].replace("\\n", "\n"),
+                            "client_email":environ['FIREBASE_CLIENT_ID'],
+                            "client_id": environ['FIREBASE_CLIENT_ID'],
+                            "auth_uri":environ['FIREBASE_AUTH_URI'],
+                            "token_uri":environ['FIREBASE_TOKEN_URI'],
+                            "auth_provider_x509_cert_url":environ['FIREBASE_AUTH_PROVIDER_X509_CERT_URL'],
+                            "client_x509_cert_url":environ['FIREBASE_CLIENT_X509_CERT_URL']}
+                            
+        print("ENV KEYS:", credentialsDict)
 
-        #use json file as certificate to establish connection to firebase
-        cred = credentials.Certificate(r"sample.json")
-
-    
-    firebase_admin.initialize_app(cred)
-    
+        CREDENTIALS = credentials.Certificate(credentialsDict)
+        firebase_admin.initialize_app(CREDENTIALS)
+        
 
 firebase= firestore.client()
 
