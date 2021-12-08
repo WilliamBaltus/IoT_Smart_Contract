@@ -52,6 +52,7 @@ def hello_world():
     data_ref = firebase.collection('12-05-21').document('08:00:08AM')
     dataDict = data_ref.get().to_dict()
     temp = dataDict['Temperature']
+    temp = float(temp)
     return jsonify({'Device': 'Raspberry Pi',
                     'Temperature': temp })
 
