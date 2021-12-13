@@ -17,13 +17,26 @@ This project leverages IoT, Cloud, and Distributed Ledger Technology. It's task 
 9. Smart contract compares environmental data to threshold value
 10. Smart contract transfers funds from one wallet to another
 
-<h2> Replication and Running </h2>
+<h2> Replication and Running :white_check_mark:</h2>
+Prerequisites:  
+
+- [ ] Google Firebase Database (Cloudstore)
+- [ ] Heroku account and app created
+- [ ] Add Firebase environmental variables to config vars section of Heroku app 
+- [ ] Raspberry Pi
+- [ ] BME680
+- [ ] 4 Male to Male jumper cables
+- [ ] Breadboard
+
 This project cannot be directly replicated from this repository but a brief tutorial can be found below. 
+<h3> Flask WebPage </h3>
+
+<h3> Google Firebase Database </h3>
 
 <h3> Heroku-- Cloud Hosting </h3>
-  
+
 ---------------------------------------------------------------------------------------------------------
-# ---------------------------------LABS------------------------------------
+# ---------------------------LABS-------------------------------
 ---------------------------------------------------------------------------------------------------------
 
 <h2> Lesson 5 </h2>  
