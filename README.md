@@ -1,8 +1,31 @@
 # IOT Smart Contract
-This is a project for EE-629. A smart contract that will execute utilizing chainlink, ethereum, and raspberry pi!
-Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
+This is a project for EE-629. A smart contract that will execute utilizing Chainlink, Ethereum (Kovan network), and Raspberry Pi!
+Check out the website at https://sites.google.com/stevens.edu/williambaltus/home.  
+(The website contains much of the information on the progress and achievement of this project)
 
-<h1> Lesson 5 </h1>  
+<h2> A Synopsis </h2>
+
+This project leverages IoT, Cloud, and Distributed Ledger Technology. It's task is to execute a transaction between two wallets on the Ethereum Kovan test network based on environmental data gathered from a BME680 sensor. The flow of events in this project is the following: 
+1. Collect environmental data via a BME680 sensor and Raspberry Pi
+2. Push sensor data to Firebase Database via Raspberry Pi
+3. Load webpage using Flask
+4. Pull data from Firebase Database
+5. Publish data on webpage
+6. When webpage is GET requested, return JSONified data!
+7. Smart contract with paired LINK node sends GET request to webpage
+8. Smart contract receives environmental data
+9. Smart contract compares environmental data to threshold value
+10. Smart contract transfers funds from one wallet to another
+
+<h2> Replication and Running </h2>
+This project cannot be directly replicated from this repository but a brief tutorial can be found below. 
+
+<h3> Heroku-- Cloud Hosting 
+---------------------------------------------------------------------------------------------------------
+# ---------------------------------LABS------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+<h2> Lesson 5 </h2>  
 
 <h3> Lesson 5A  </h3>  
 
@@ -15,7 +38,7 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 ![Image of Lesson5B](/images/lesson5B_CPU.png)
 
-<h1> Lesson 6 </h1>  
+<h2> Lesson 6 </h2>  
 
 <h3> Lesson 6A  </h3>  
 
@@ -28,13 +51,13 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 ![Image of Lesson6B](/images/lesson6B.png)
   
-<h1> Lesson 7 </h1> 
+<h2> Lesson 7 </h2> 
 
 <h3> Lesson 7B  </h3>  
 
 ![Image of Lesson7B](/images/lesson7B.PNG)
 
-<h1> Lesson 8 </h1> 
+<h2> Lesson 8 </h2> 
 
 <h3> Lesson 8A  </h3>  
 
@@ -46,7 +69,7 @@ Check out the website at https://sites.google.com/stevens.edu/williambaltus/home
 
 I was unable to set this up properly, I was have issues sending over the .csv file unfortunately. 
 
-<h1> Lesson 9 </h1> 
+<h2> Lesson 9 </h2> 
 
 <h3> Lesson 9A </h3>  
 
@@ -56,7 +79,7 @@ I was unable to set this up properly, I was have issues sending over the .csv fi
 
 ![Image of Lesson9B](/images/lesson9B.png)
 
-<h1> Lesson 10 </h1> 
+<h2> Lesson 10 </h2> 
 
 <h3> Lesson 10A </h3>  
 
