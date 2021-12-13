@@ -28,6 +28,18 @@ Prerequisites:
 - [ ] 4 Male to Male jumper cables
 - [ ] Breadboard
 
+<h4> Running </h4> 
+
+Wire the BME680 and the Raspberry Pi as follows:
+![Image of Wiring](/images/bme.jpg)
+
+Install all requirements to run via ```pip install -r requirements.txt``` 
+
+Next install bme680 requirements  via ```pip3 install adafruit-circuitpython-bme680```
+
+Next 
+
+
 This project cannot be directly replicated from this repository but a brief tutorial can be found below. 
 <h3> Flask WebPage </h3>
 
