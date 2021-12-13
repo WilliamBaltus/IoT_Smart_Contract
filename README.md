@@ -22,7 +22,7 @@ Prerequisites:
 
 - [ ] Google Firebase Database (Cloudstore)
 - [ ] Heroku account and app created
-- [ ] Add Firebase environmental variables to config vars section of Heroku app 
+- [ ] Add Firebase environmental variables and credentials to config vars section of Heroku app 
 - [ ] Raspberry Pi
 - [ ] BME680
 - [ ] 4 Male to Male jumper cables
@@ -30,14 +30,18 @@ Prerequisites:
 
 <h4> Running </h4> 
 
-Wire the BME680 and the Raspberry Pi as follows:
+1. Wire the BME680 and the Raspberry Pi as follows:
 ![Image of Wiring](/images/bme.jpg)
+2. Create a virtual environment (Windows) via 
+``` 
+    python3 -m venv .env 
+    source .env/bin/activate
+```
+3. Install all requirements to run via ```pip install -r requirements.txt``` 
 
-Install all requirements to run via ```pip install -r requirements.txt``` 
+4. Next install bme680 requirements  via ```pip3 install adafruit-circuitpython-bme680```
 
-Next install bme680 requirements  via ```pip3 install adafruit-circuitpython-bme680```
-
-Next 
+5. Next ensure to change the ```.env``` file with your particular Firebase credentials.
 
 
 This project cannot be directly replicated from this repository but a brief tutorial can be found below. 
