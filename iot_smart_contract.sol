@@ -8,10 +8,6 @@ import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
  * Find information on LINK Token Contracts and get the latest ETH and LINK faucets here: https://docs.chain.link/docs/link-token-contracts/
  */
 
-/**
- * THIS IS AN EXAMPLE CONTRACT WHICH USES HARDCODED VALUES FOR CLARITY.
- * PLEASE DO NOT USE THIS CODE IN PRODUCTION.
- */
 contract APIConsumer is ChainlinkClient {
     using Chainlink for Chainlink.Request;
   
