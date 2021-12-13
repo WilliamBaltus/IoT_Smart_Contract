@@ -13,6 +13,7 @@ from firebase_admin import credentials, firestore
 from os import environ
 from dotenv import load_dotenv
 import json
+from bme680 import getData
 
 load_dotenv()
 
@@ -48,7 +49,10 @@ if not firebase_admin._apps:
 firebase= firestore.client()
 
 @app.route('/', methods=['GET'])
-def hello_world():
+def index():
+    #data_ref = firebase.collection('12-05-21').document('temp')
+    #temp = getData['Temperature']
+    #data_ref.set(u'Temperature': temp)
     data_ref = firebase.collection('12-05-21').document('08:00:08AM')
     dataDict = data_ref.get().to_dict()
     temp = dataDict['Temperature']
