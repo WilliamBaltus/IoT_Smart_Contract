@@ -20,7 +20,8 @@ This project leverages IoT, Cloud, and Distributed Ledger Technology. It's task 
 <h2> Replication and Running </h2>
 This project cannot be directly replicated from this repository but a brief tutorial can be found below. 
 
-<h3> Heroku-- Cloud Hosting 
+<h3> Heroku-- Cloud Hosting </h3>
+  
 ---------------------------------------------------------------------------------------------------------
 # ---------------------------------LABS------------------------------------
 ---------------------------------------------------------------------------------------------------------
