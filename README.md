@@ -1,4 +1,4 @@
-# IOT Smart Contract
+# IoT Smart Contract
 This is a project for EE-629. A smart contract that will execute utilizing Chainlink, Ethereum (Kovan network), and Raspberry Pi!
 Check out the website at https://sites.google.com/stevens.edu/williambaltus/home.  
 (The website contains much of the information on the progress and achievement of this project)
