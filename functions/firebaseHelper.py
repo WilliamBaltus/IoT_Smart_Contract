@@ -18,25 +18,32 @@ load_dotenv()
 
 tester = 123
 
+deployed = environ.get('IS_HEROKU')
+print(deployed)
 if not firebase_admin._apps:
-    #create dictioanry containing environmental variables from heroku config vars, also used for regular deployment
-    print("RUNNING HEROKU, NOT LOCAL")
-    credentialsDict = { "type": environ['FIREBASE_TYPE'],
-                        "project_id":environ['FIREBASE_PROJECT_ID'],
-                        "private_key_id":environ['FIREBASE_PRIVATE_KEY_ID'],
-                        "private_key":environ['FIREBASE_PRIVATE_KEY'].replace("\\n", "\n"),
-                        "client_email":environ['FIREBASE_CLIENT_ID'],
-                        "client_id": environ['FIREBASE_CLIENT_ID'],
-                        "auth_uri":environ['FIREBASE_AUTH_URI'],
-                        "token_uri":environ['FIREBASE_TOKEN_URI'],
-                        "auth_provider_x509_cert_url":environ['FIREBASE_AUTH_PROVIDER_X509_CERT_URL'],
-                        "client_x509_cert_url":environ['FIREBASE_CLIENT_X509_CERT_URL']}
-                        
-    #print("ENV KEYS:", credentialsDict)
+    if( int(deployed) < 1):
+        print("RUNNING LOCAL, NOT HEROKU")
+        cred = credentials.Certificate(r"iot_smart_contract.json")
+        firebase_admin.initialize_app(cred)
+    else:
+        #create dictioanry containing environmental variables from heroku config vars
+        print("RUNNING HEROKU, NOT LOCAL")
+        credentialsDict = { "type": environ['FIREBASE_TYPE'],
+                            "project_id":environ['FIREBASE_PROJECT_ID'],
+                            "private_key_id":environ['FIREBASE_PRIVATE_KEY_ID'],
+                            "private_key":environ['FIREBASE_PRIVATE_KEY'].replace("\\n", "\n"),
+                            "client_email":environ['FIREBASE_CLIENT_ID'],
+                            "client_id": environ['FIREBASE_CLIENT_ID'],
+                            "auth_uri":environ['FIREBASE_AUTH_URI'],
+                            "token_uri":environ['FIREBASE_TOKEN_URI'],
+                            "auth_provider_x509_cert_url":environ['FIREBASE_AUTH_PROVIDER_X509_CERT_URL'],
+                            "client_x509_cert_url":environ['FIREBASE_CLIENT_X509_CERT_URL']}
+                            
+        #print("ENV KEYS:", credentialsDict)
 
-    CREDENTIALS = credentials.Certificate(credentialsDict)
-    firebase_admin.initialize_app(CREDENTIALS)
-    
+        CREDENTIALS = credentials.Certificate(credentialsDict)
+        firebase_admin.initialize_app(CREDENTIALS)
+        
 
 firebase= firestore.client()
 #----------------------------------------------------------------------------------------------------------------------
