@@ -8,7 +8,7 @@
 
 
 from flask import Flask, render_template
-from functions.firebaseHelper import pullFirebase
+from functions.firebaseHelper import pullFirebase, getManualMode
 import time
 from turbo_flask import Turbo
 import threading
@@ -46,6 +46,7 @@ def update_load():
 def index():
     #get data from firebase to load onto index page
     latestData = pullFirebase()
+    userInputManual = getManualMode()
     temp = str(latestData['Temperature']) + " F"
     humidity = str(latestData['Humidity']) + "%"
     pressure = str(latestData['Pressure']) + "HPa"
@@ -55,6 +56,7 @@ def index():
                     'Pressure': pressure,
                     'Date': time.strftime("%m/%d/%y"),
                     'Timestamp': time.strftime("at %I:%M:%S%p"),
+                    'manual':  userInputManual
                     }
     return render_template('index.html', **templateData)
 
