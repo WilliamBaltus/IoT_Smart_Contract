@@ -49,12 +49,21 @@ firebase= firestore.client()
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    data_ref = firebase.collection('12-05-21').document('08:00:08AM')
+    doc_ref = firebase.collection('latestData').document('JonCucciLikesMen')
+    latestData = doc_ref.get().to_dict()
+    date = latestData['date']
+    timestamp = latestData['timestamp']
+    data_ref = firebase.collection(date).document(timestamp)
     dataDict = data_ref.get().to_dict()
     temp = dataDict['Temperature']
+    humidity = str(latestData['Humidity']) + "%"
+    pressure = str(latestData['Pressure']) + "HPa"
+    
     temp = float(temp)
     return jsonify({'Device': 'Raspberry Pi',
-                    'Temperature': temp })
+                    'Temperature': temp,
+                    'Temperature': humidity,
+                    'Temperature': pressure})
 
 if __name__ == '__main__':  
     app.run() 
