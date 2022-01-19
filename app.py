@@ -13,13 +13,13 @@ import time
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def hello_world():
-    dataDict = pullFirebase()
-    temp = dataDict['Temperature']
-    humidity = dataDict['Humidity']
-    pressure = dataDict['Pressure']
-    temp = float(temp)
+@app.route('/', methods = ['POST', 'GET'])
+def index():
+    #get data from firebase to load onto index page
+    latestData = pullFirebase()
+    temp = str(latestData['Temperature']) + " F"
+    humidity = str(latestData['Humidity']) + "%"
+    pressure = str(latestData['Pressure']) + "HPa"
     templateData = {
                     'Temperature': temp,
                     'Humidity': humidity,
