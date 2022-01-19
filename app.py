@@ -7,7 +7,7 @@
 #Route is programmed to handle GET requests
 
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import firebase_admin
 from firebase_admin import credentials, firestore
 from os import environ
@@ -55,11 +55,14 @@ def hello_world():
     humidity = dataDict['Humidity']
     pressure = dataDict['Pressure']
     temp = float(temp)
-    return jsonify({'Device': 'Raspberry Pi',
+    templateData = {
                     'Temperature': temp,
                     'Humidity': humidity,
-                    'Pressure': pressure
-                   })
+                    'Pressure': pressure,
+                    'Date': time.strftime("%m/%d/%y"),
+                    'Timestamp': time.strftime("at %I:%M:%S%p"),
+                    }
+    return render_template('index.html', **templateData)
 
 if __name__ == '__main__':  
     app.run() 
