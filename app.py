@@ -12,9 +12,35 @@ from functions.firebaseHelper import pullFirebase
 import time
 from turbo_flask import Turbo
 import threading
+import sys
 
 app = Flask(__name__)
 turbo = Turbo(app)
+
+@app.before_first_request
+def before_first_request():
+    threading.Thread(target=update_load).start()
+
+@app.context_processor
+def inject_load():
+    
+    latestData = pullFirebase()
+    temp = str(latestData['Temperature']) + " F"
+    humidity = str(latestData['Humidity']) + "%"
+    pressure = str(latestData['Pressure']) + "HPa"
+    return {
+        'Temperature': temp,
+        'Humidity': humidity,
+        'Pressure': pressure,
+        'Date': time.strftime("%m/%d/%y"),
+        'Timestamp': time.strftime("at %I:%M:%S%p"),
+        }
+
+def update_load():
+    with app.app_context():
+        while True:
+            time.sleep(10)
+            turbo.push(turbo.replace(render_template('latestData.html'), 'latestData'))
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():

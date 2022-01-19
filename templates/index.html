@@ -20,14 +20,8 @@
 	    </style>
 	<body>
 		<img src = "{{url_for('static', filename='Intelli_Veggie_.jpg')}}"  alt = "Logo" >
-	    <div id="latestData" class="latestData">
-	      <table>
-		<tr><th></th><th>Temperature</th><th>Humidity</th><th>Pressure</th></tr>
-		<tr><th>Environmental Data:</th><td>{{ Temperature }}</td><td>{{ Humidity }}</td><td>{{ Pressure }}</td></tr>
-		<tr><th>Last Updated:</th> <td> {{ Date }}</td> <td> {{ Timestamp }}</td></tr>
-	      </table>
-	    </div>
-
+		{% include "latestData.html" %}
+    	{% block content %}{% endblock %}
   	</body>
 </head>
 </html>
