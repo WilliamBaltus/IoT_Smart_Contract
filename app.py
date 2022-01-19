@@ -10,8 +10,11 @@
 from flask import Flask, render_template
 from functions.firebaseHelper import pullFirebase
 import time
+from turbo_flask import Turbo
+import threading
 
 app = Flask(__name__)
+turbo = Turbo(app)
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():

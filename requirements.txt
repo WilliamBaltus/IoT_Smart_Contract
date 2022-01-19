@@ -10,3 +10,4 @@ gpiozero==1.6.2
 python-dotenv==0.19.2
 firebase-admin==5.1.0
 grpcio==1.42.0
+Turbo-Flask==0.8.0
