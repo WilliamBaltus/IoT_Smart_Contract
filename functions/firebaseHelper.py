@@ -59,7 +59,7 @@ def pullFirebase():
     data_ref = firebase.collection(date).document(timestamp)
     dataDict = data_ref.get().to_dict()
 
-    #dictionary returns:  {'Pressure': 1028.6, 'Date and Time': '12/04/21 at 04:32:21PM', 'Humidity': 39.71, 'Temperature': 75.02}
+    #dictionary returns:  {'Pressure': 1028.6, 'Date': '12/04/21 ', Timestamp: '04:32:21PM', 'Humidity': 39.71, 'Temperature': 75.02}
     return dataDict
 
 #used to get the latest data and whether or not user has set greenhouse to manual mode or not
@@ -90,9 +90,23 @@ def testConnection():
     currentValue = doc_ref.get().to_dict()
     print("New Value: " + str(currentValue['test']))
 
+def pushTestData():
+    _date = strftime("%m-%d-%y")
+    timestamp = strftime("%I:%M:%S%p")
+    doc_ref = firebase.collection(_date).document(timestamp)
+ 
+    doc_ref.set({
+        u'Date': _date,
+        u'Timestamp': timestamp,
+        u'Temperature': '68',
+        u'Humidity': '421',
+        u'Pressure': '9000'
+    })
+
 if __name__ == "__main__":
     print("Testing connection...") 
     testConnection()
     print("Pulling latest data...")
     print(pullFirebase())
+    pushTestData()
     

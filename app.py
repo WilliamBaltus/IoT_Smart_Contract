@@ -23,7 +23,6 @@ def before_first_request():
 
 @app.context_processor
 def inject_load():
-    
     latestData = pullFirebase()
     temp = str(latestData['Temperature']) + " F"
     humidity = str(latestData['Humidity']) + "%"
@@ -50,15 +49,17 @@ def index():
     temp = str(latestData['Temperature']) + " F"
     humidity = str(latestData['Humidity']) + "%"
     pressure = str(latestData['Pressure']) + "HPa"
+    date = str(latestData['Date']) 
+    timestamp = str(latestData['Timestamp'])
     templateData = {
                     'Temperature': temp,
                     'Humidity': humidity,
                     'Pressure': pressure,
-                    'Date': time.strftime("%m/%d/%y"),
-                    'Timestamp': time.strftime("at %I:%M:%S%p"),
+                    'Date': date,
+                    'Timestamp': time.strftime("%I:%M:%S%p"),
                     'manual':  userInputManual
                     }
     return render_template('index.html', **templateData)
 
 if __name__ == '__main__':  
-    app.run() 
+    app.run(debug = True) 
